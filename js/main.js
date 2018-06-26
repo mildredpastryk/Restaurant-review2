@@ -1,6 +1,6 @@
 let restaurants,
-  neighborhoods,
-  cuisines
+    neighborhoods,
+    cuisines
 var newMap
 var markers = []
 
@@ -161,6 +161,7 @@ createRestaurantHTML = (restaurant) => {
   const image = document.createElement('img');
   image.className = 'restaurant-img';
   image.src = DBHelper.imageUrlForRestaurant(restaurant);
+  image.alt = restaurant.name;
   li.append(image);
 
   const name = document.createElement('h1');
@@ -209,3 +210,11 @@ addMarkersToMap = (restaurants = self.restaurants) => {
   });
 } */
 
+/*
+ * Add title to iframe
+ */
+  window.addEventListener('load', function () {
+  let iframeElt = document.querySelector('iframe');
+  iframeElt.setAttribute('title', 'iframe map');
+  iframeElt.setAttribute('tabindex', '-1');
+});
